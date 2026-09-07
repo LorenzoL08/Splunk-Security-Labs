@@ -81,7 +81,7 @@ No corresponding successful network logon was identified within the data reviewe
 
 ## llore Account Investigation
 
-The second pattern I investigated involved failed logons for the llore account.
+The second pattern I investigated involved failed logons for the `llore` account.
 
 ### Findings
 
@@ -133,5 +133,3 @@ Based on my findings, I would not escalate this activity as a security incident.
 ## Key Takeaways
 
 This lab helped me get more comfortable searching Windows logs in Splunk and using fields to narrow down authentication activity. I also got practice investigating different failed-logon patterns, checking for related successful logons, creating reports, and building a basic dashboard.
-
-It also provided hands-on practice translating raw Windows authentication telemetry into reusable Splunk searches and monitoring views.
