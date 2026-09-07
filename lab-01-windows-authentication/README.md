@@ -125,12 +125,10 @@ Based on my findings, I would not escalate this activity as a security incident.
 - SPL searching
 - Windows Security Event Log analysis
 - Field and event exploration
-- EventCode analysis
 - Authentication investigation
-- Boolean/search filtering
-- Reports
+- Boolean search filtering
+- Report creation
 - Dashboard creation
-- SOC investigation methodology
 
 ## Key Takeaways
 
