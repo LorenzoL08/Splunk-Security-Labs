@@ -115,7 +115,7 @@ I investigated authentication activity on my personal Windows device using Windo
 
 Two failed-logon patterns were identified: network logon attempts targeting a disabled Guest account and failed network logon attempts involving the `llore` account due to an unknown username or bad password.
 
-No successful authentication events associated with either investigated pattern were identified during the period reviewed.
+No successful authentication events associated with either investigated pattern.
 
 Based on my findings, I would not escalate this activity as a security incident. I did not find any successful logons associated with either failed-logon pattern, and there was no evidence in the logs I reviewed that either account was successfully accessed. I would continue monitoring the activity if the failed attempts continued or other suspicious events appeared.
 
@@ -132,4 +132,4 @@ Based on my findings, I would not escalate this activity as a security incident.
 
 ## Key Takeaways
 
-This lab helped me get more comfortable searching Windows logs in Splunk and using fields to narrow down authentication activity. I also got practice investigating different failed-logon patterns, checking for related successful logons, creating reports, and building a basic dashboard.
+This lab helped me get more comfortable searching Windows logs in Splunk and using fields to narrow down authentication activity. I also gained practice investigating different failed-logon patterns, checking for related successful logons, creating reports, and building a basic dashboard.
