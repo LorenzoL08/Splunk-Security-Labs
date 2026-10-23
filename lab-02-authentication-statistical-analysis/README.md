@@ -36,3 +36,16 @@ index="lab2" | eval LoginActivity=if(EventCode="4625", "Failed Logon", "Successf
 ```
 ![Authentication Activity by Account](screenshots/SortMostFailedLogons.png)
 
+## rpatel Investigation
+
+### Authentication Activity Over Time
+
+Due to the significant deviation in failed logons for user `rpatel`, I used the `timechart` command with a 1-day span to identify any potential anomalies. This showed that user `rpatel` had 86 failed logons on August 27th; meanwhile, the rest of the days had no more than 4 failed logons.
+
+```spl
+index="lab2" Account_Name="rpatel" | eval LoginActivity=if(EventCode="4625", "Failed Logon", "Successful Logon") | timechart count by LoginActivity
+```
+
+![rpatel Authentication Activity Over Time](screenshots/TimechartCommandRpatel.png)
+
+The significant deviation of failed logons on August 27th led me to narrow my investigation down to activity on that day.
