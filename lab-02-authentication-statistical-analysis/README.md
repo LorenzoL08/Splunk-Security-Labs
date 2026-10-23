@@ -49,3 +49,13 @@ index="lab2" Account_Name="rpatel" | eval LoginActivity=if(EventCode="4625", "Fa
 ![rpatel Authentication Activity Over Time](screenshots/TimechartCommandRpatel.png)
 
 The significant deviation of failed logons on August 27th led me to narrow my investigation down to activity on that day.
+
+### August 27 Authentication Activity
+
+Querying August 27th with the `timechart` command and a 1-hour span allowed me to see all 86 failed logons occurred between 2 and 3 a.m. Additionally, 3 successful logons occurred shortly after 3 a.m. This concentration of failed logon attempts led me to further investigate the failed attempts. 
+
+```spl
+index="lab2" Account_Name="rpatel" date_mday="27" | eval LoginActivity=if(EventCode="4625", "Failed Logon", "Successful Logon") | timechart span=1h count by LoginActivity
+```
+
+![August 27 Authentication Activity](screenshots/QueryOnAnomolousDay.png)
