@@ -21,7 +21,18 @@ Note: All accounts, systems, events, and network activity represented in this da
 ### Overall Authentication Activity
 
 When I began triaging the dataset, I wanted to understand overall authentication activity. To do this, I categorized  `EventCode ` 4624 as successful and 4625 as failed. The overall authentication activity included 713 successful logons and 172 failed logons.
-
+```spl
 index="lab2" | eval LoginActivity=if(EventCode="4625", "Failed Logon", "Successful Logon") | stats count by LoginActivity
-
+```
 ![Overall Authentication Activity](screenshots/EvalOverallLoginActivity.png)
+
+### Account Activity Comparison
+
+Now that we understand the overall authentication activity, I wanted to further categorize the data and identify the authentication activity for individual accounts. To compare successful and failed logons by `Account_Name` I used the `chart` command. Additionally, I used `sort` to rank the account from the most failed logons to the least.
+
+Through this query, I was able to identify user `rpatel` as having the most authentication activity, with 208 total events and 98 failed logons, substantially more failures than other user accounts. This led me to investigate `rpatel` further.
+```spl
+index="lab2" | eval LoginActivity=if(EventCode="4625", "Failed Logon", "Successful Logon") | chart count by Account_Name, LoginActivity | sort - "Failed Logon"
+```
+![Authentication Activity by Account](screenshots/SortMostFailedLogons.png)
+
