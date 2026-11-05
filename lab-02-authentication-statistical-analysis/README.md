@@ -89,3 +89,25 @@ Further investigation revealed that the logon failures were due to the Guest acc
 `svc_backup` had **69 successful logon attempts with 0 failed attempts**. Due to the 100% success rate, I investigated the account further. All logon attempts originated from the IP `10.20.5.10`, with **50 logons to FILE-01, 11 logons to APP-01, and 8 logons to DC-01**. This activity is consistent with expected backup activity based on the available evidence. No anomalous activity was identified, so no escalation was necessary.
 
 ![August 27 Authentication Activity](screenshots/svcbackuplogonactivity.png)
+
+## Investigation Conclusion
+
+Using statistical analysis on the synthetic Windows authentication dataset, I was able to identify `rpatel` as the primary account requiring further investigation. Out of the account's 98 failed logons, 86 occurred within a one-hour period on August 27th. These attempts originated from `198.51.100.77` and were followed by 3 successful logons from the same source targeting `rpatel` on `APP-01`. This activity is consistent with a potential brute-force attempt and would require escalation for further investigation.
+
+Additional analysis of the `Guest` and `svc_backup` accounts did not identify activity warranting escalation based on the available evidence.
+
+## Skills Practiced
+
+- Statistical analysis of Windows authentication activity
+
+- Authentication baselining and anomaly identification
+
+- Time-based analysis using `timechart`
+
+- Data categorization using `eval` and `if`
+
+- Account activity comparison using `chart` and `sort`
+
+- Correlation of account, source IP, computer, failure reason, and authentication status
+
+- Security event triage and escalation decision-making
