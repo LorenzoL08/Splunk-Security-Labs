@@ -84,3 +84,8 @@ Further investigation revealed that the logon failures were due to the Guest acc
 
 ![August 27 Authentication Activity](screenshots/GuestFailureLogonReason.png)
 
+### Service Account Investigation
+
+`svc_backup` had **69 successful logon attempts with 0 failed attempts**. Due to the 100% success rate, I investigated the account further. All logon attempts originated from the IP `10.20.5.10`, with **50 logons to FILE-01, 11 logons to APP-01, and 8 logons to DC-01**. This activity is consistent with expected backup activity based on the available evidence. No anomalous activity was identified, so no escalation was necessary.
+
+![August 27 Authentication Activity](screenshots/svcbackuplogonactivity.png)
