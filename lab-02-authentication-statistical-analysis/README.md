@@ -59,3 +59,9 @@ index="lab2" Account_Name="rpatel" date_mday="27" | eval LoginActivity=if(EventC
 ```
 
 ![August 27 Authentication Activity](screenshots/QueryOnAnomolousDay.png)
+
+### Failed Logon Analysis
+
+All 86 failed logon attempts had the failure reason Unknown username or bad password. All logon attempts were Type 3 network logons originating from the IP `198.51.100.77`, targeting the account `rpatel` on `APP-01`.
+
+![August 27 Authentication Activity](screenshots/FailureLogonsAug27.png)
