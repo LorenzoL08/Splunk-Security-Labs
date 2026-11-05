@@ -71,3 +71,16 @@ All 86 failed logon attempts had the failure reason Unknown username or bad pass
 Further analysis of IP address 198.51.100.77 revealed 3 successful logon attempts on the account `rpatel` on `APP-01` shortly after the failed attempts. The 86 failed logon attempts followed by successful logons from the same source is consistent with a potential brute-force attempt. Based on the evidence, I would escalate this activity for further investigation.
 
 ![August 27 Authentication Activity](screenshots/FilteringSourceOfNetworkLogons.png)
+
+## Additional Account Analysis
+
+### Guest Account Investigation
+
+I checked the Guest account’s logon activity because all attempts on that account were failures. The logon activity spanned over a week, with no more than 3 failures per day. 
+
+![August 27 Authentication Activity](screenshots/GuestAccountTimechart.png)
+
+Further investigation revealed that the logon failures were due to the Guest account being disabled. Additionally, the failures were network logons from internal private IP addresses in the 10.20.5.x range and originated from different computers.
+
+![August 27 Authentication Activity](screenshots/GuestFailureLogonReason.png)
+
