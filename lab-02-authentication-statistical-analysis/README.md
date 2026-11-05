@@ -65,3 +65,9 @@ index="lab2" Account_Name="rpatel" date_mday="27" | eval LoginActivity=if(EventC
 All 86 failed logon attempts had the failure reason Unknown username or bad password. All logon attempts were Type 3 network logons originating from the IP `198.51.100.77`, targeting the account `rpatel` on `APP-01`.
 
 ![August 27 Authentication Activity](screenshots/FailureLogonsAug27.png)
+
+### Successful Authentication Analysis
+
+Further analysis of IP address 198.51.100.77 revealed 3 successful logon attempts on the account `rpatel` on `APP-01` shortly after the failed attempts. The 86 failed logon attempts followed by successful logons from the same source is consistent with a potential brute-force attempt. Based on the evidence, I would escalate this activity for further investigation.
+
+![August 27 Authentication Activity](screenshots/FilteringSourceOfNetworkLogons.png)
